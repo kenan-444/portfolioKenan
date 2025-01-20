@@ -144,18 +144,18 @@
   <section id="contact" class="py-16 bg-white text-gray-900">
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center">Me Contacter</h2>
-      <form class="max-w-lg mx-auto mt-8 bg-gray-800 p-6 shadow-lg rounded">
+      <form action="https://formsubmit.co/kenan.fabre5@gmail.com" method="POST" class="max-w-lg mx-auto mt-8 bg-gray-800 p-6 shadow-lg rounded">
         <div class="mb-4">
           <label class="block font-bold text-white">Nom</label>
-          <input type="text" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" placeholder="Votre nom">
+          <input type="text" name="name" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" placeholder="Votre nom" required>
         </div>
         <div class="mb-4">
           <label class="block font-bold text-white">Email</label>
-          <input type="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" placeholder="Votre email">
+          <input type="email" name="email" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" placeholder="Votre email" required>
         </div>
         <div class="mb-4">
           <label class="block font-bold text-white">Message</label>
-          <textarea class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" rows="4" placeholder="Votre message"></textarea>
+          <textarea name="message" class="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded" rows="4" placeholder="Votre message" required></textarea>
         </div>
         <button type="submit" class="bg-blue-500 text-white px-6 py-2 rounded hover:bg-blue-600">Envoyer</button>
       </form>
@@ -187,5 +187,24 @@
       <p>&copy; 2025 Kenan Fabre. Tous droits réservés.</p>
     </div>
   </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sélectionner toutes les images
+      const images = document.querySelectorAll('img');
+  
+      images.forEach(img => {
+        // Ajouter un effet au survol
+        img.addEventListener('mouseenter', () => {
+          img.style.transform = 'scale(1.1)';
+          img.style.transition = 'transform 0.3s ease-in-out';
+        });
+  
+        // Supprimer l'effet quand la souris quitte l'image
+        img.addEventListener('mouseleave', () => {
+          img.style.transform = 'scale(1)';
+        });
+      });
+    });
+  </script>
 </body>
 </html>
