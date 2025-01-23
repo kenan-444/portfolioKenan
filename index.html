@@ -11,11 +11,11 @@
   <nav class="bg-gray-900 shadow-md fixed w-full z-10">
     <div class="container mx-auto flex justify-center items-center py-4">
       <ul class="flex flex-wrap justify-center text-lg font-bold text-white">
-        <li class="px-4 py-2"><a href="#about" class="hover:text-blue-500 underline">À propos</a></li>
-        <li class="px-4 py-2"><a href="#skills" class="hover:text-blue-500 underline">Compétences</a></li>
-        <li class="px-4 py-2"><a href="#projects" class="hover:text-blue-500 underline">Projets</a></li>
-        <li class="px-4 py-2"><a href="#experience" class="hover:text-blue-500 underline">Expérience</a></li>
-        <li class="px-4 py-2"><a href="#contact" class="hover:text-blue-500 underline">Contact</a></li>
+        <li class="px-4 py-2"><a href="#about" class="smooth-scroll hover:text-blue-500 underline">À propos</a></li>
+        <li class="px-4 py-2"><a href="#skills" class="smooth-scroll hover:text-blue-500 underline">Compétences</a></li>
+        <li class="px-4 py-2"><a href="#projects" class="smooth-scroll hover:text-blue-500 underline">Projets</a></li>
+        <li class="px-4 py-2"><a href="#experience" class="smooth-scroll hover:text-blue-500 underline">Expérience</a></li>
+        <li class="px-4 py-2"><a href="#contact" class="smooth-scroll hover:text-blue-500 underline">Contact</a></li>
       </ul>
     </div>
   </nav>
@@ -23,13 +23,13 @@
   <!-- kenan  -->
   <header class="bg-white h-screen flex items-center">
     <div class="container mx-auto flex flex-col md:flex-row items-center px-4 md:px-0">
-      <div class="md:w-1/2 text-center md:text-left">
-        <p class="text-3xl md:text-4xl font-light">Bonjour, je suis <span class="font-bold text-gray-900">Kenan Fabre</span></p>
+      <div class="md:w-1/2 text-center md:text-left" id="text-header" style="margin-left: 140px;">
+        <p class="text-3xl md:text-4xl">Bonjour, je suis <span class="font-bold text-gray-900">Kenan Fabre,</span></p>
         <p class="text-3xl md:text-4xl font-medium mt-4">
           <span class="text-gray-700">Développeur Web Junior</span>
         </p>
         <p class="text-3xl md:text-4xl mt-4">
-          Basé à <span class="font-bold text-gray-900">Toulouse</span>
+          Basé à <span class="font-bold text-gray-900">Toulouse.</span>
         </p>
       </div>
       <div class="md:w-1/2 flex justify-center mt-6 md:mt-0">
@@ -37,6 +37,7 @@
       </div>
     </div>
   </header>
+  
 
   <!-- Compétences  -->
   <section id="skills" class="py-16 bg-gray-900 text-white">
@@ -71,7 +72,7 @@
     <div class="container mx-auto">
       <h2 class="text-3xl font-bold text-center">À propos de moi</h2>
       <p class="mt-4 text-base text-black text-center max-w-4xl mx-auto leading-relaxed">
-        Depuis novembre 2024, je suis une formation à distance de développeur web avec le GRETA CFA de Lozère, basé à Mende. Ce choix est guidé par ma passion pour l’informatique et mon désir constant d'apprendre. <br>
+        Depuis novembre 2024, je suis une formation à distance de développeur web avec le GRETA CFA de Lozère, basé à Mende. <br> Ce choix est guidé par ma passion pour l’informatique et mon désir constant d'apprendre. <br>
         En 2023, après avoir obtenu mon DAEU A, j’ai postulé sur Parcoursup à diverses formations en informatique, sans succès. <br>
         Cependant, cette expérience n’a fait que renforcer ma détermination à poursuivre cette voie. <br>
         Aujourd’hui, je suis pleinement investi dans cette formation qui m’apporte des compétences techniques solides et me prépare aux exigences du métier. <br><br>
@@ -191,18 +192,33 @@
   </footer>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-    
+      // Animation pour les images
       const images = document.querySelectorAll('img');
-  
       images.forEach(img => {
-  
         img.addEventListener('mouseenter', () => {
           img.style.transform = 'scale(1.1)';
           img.style.transition = 'transform 0.3s ease-in-out';
         });
-
+  
         img.addEventListener('mouseleave', () => {
           img.style.transform = 'scale(1)';
+        });
+      });
+  
+      // Défilement fluide pour la navigation
+      document.querySelectorAll('.smooth-scroll').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault(); // Empêche le comportement par défaut
+  
+          // Récupère l'élément cible
+          const targetId = this.getAttribute('href').substring(1); // Supprime le '#' du href
+          const targetElement = document.getElementById(targetId);
+  
+          // Applique un défilement fluide
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
         });
       });
     });
